@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: "CaboVerde" # Podaj hasło, które ustawiłeś dla postgres podczas instalacji
+  host: localhost
+
+development:
+  <<: *default
+  database: conecta_development
+  template: template0
+
+test:
+  <<: *default
+  database: conecta_test
+  template: template0
+
+production:
+  <<: *default
+  database: conecta_production
+  username: conecta
+  password: <%= ENV['DATABASE_PASSWORD'] %>
