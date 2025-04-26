@@ -1,0 +1,95 @@
+<div class="customer-show">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><%= @customer.name %></h1>
+    <div>
+      <%= link_to t('common.edit'), edit_customer_path(@customer), class: "btn btn-outline-primary" %>
+      <%= link_to t('common.back'), customers_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <%= t('customers.show.details') %>
+        </div>
+        <div class="card-body">
+          <p>
+            <strong><%= t('customers.fields.email') %>:</strong>
+            <%= @customer.email %>
+          </p>
+          
+          <p>
+            <strong><%= t('customers.fields.phone') %>:</strong>
+            <%= @customer.phone || t('common.not_provided') %>
+          </p>
+          
+          <p>
+            <strong><%= t('customers.fields.company') %>:</strong>
+            <%= @customer.company || t('common.not_provided') %>
+          </p>
+          
+          <p>
+            <strong><%= t('customers.fields.status') %>:</strong>
+            <span class="badge bg-<%= @customer.status == 'active' ? 'success' : 'secondary' %>">
+              <%= t("customers.status.#{@customer.status}") %>
+            </span>
+          </p>
+          
+          <p>
+            <strong><%= t('customers.fields.created_at') %>:</strong>
+            <%= l(@customer.created_at, format: :long) %>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-header">
+          <%= t('notes.add') %>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: [@customer, @note], local: true) do |form| %>
+            <div class="mb-3">
+              <%= form.text_area :content, class: "form-control", rows: 3, required: true %>
+            </div>
+            <%= form.submit t('notes.save'), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+      <%= t('notes.history') %>
+    </div>
+    <div class="card-body">
+      <% if @notes.any? %>
+        <div class="list-group">
+          <% @notes.each do |note| %>
+            <div class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <small class="text-muted">
+                  <%= l(note.created_at, format: :long) %> | <%= note.user.email %>
+                </small>
+                <%= link_to t('common.delete'), customer_note_path(@customer, note), 
+                    method: :delete, 
+                    data: { confirm: t('notes.confirm_delete') }, 
+                    class: "btn btn-sm btn-outline-danger" %>
+              </div>
+              <p class="mb-0 mt-2"><%= note.content %></p>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="d-flex justify-content-center mt-3">
+          <%= paginate @notes %>
+        </div>
+      <% else %>
+        <p><%= t('notes.no_notes') %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

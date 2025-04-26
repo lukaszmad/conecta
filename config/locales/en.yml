@@ -1,0 +1,78 @@
+en:
+  common:
+    save: "Save"
+    cancel: "Cancel"
+    back: "Back"
+    view: "View"
+    edit: "Edit"
+    delete: "Delete"
+    not_provided: "Not provided"
+  
+  nav:
+    dashboard: "Dashboard"
+    customers: "Customers"
+    settings: "Settings"
+    logout: "Log Out"
+  
+  dashboard:
+    title: "Dashboard"
+    customer_count: "Customer Count"
+    view_all: "View All"
+    recent_customers: "Recently Added Customers"
+    recent_notes: "Recent Notes"
+    no_customers: "No customers"
+    no_notes: "No notes"
+  
+  customers:
+    created: "Customer was successfully created."
+    updated: "Customer information was updated."
+    destroyed: "Customer was deleted."
+    confirm_delete: "Are you sure you want to delete this customer?"
+    
+    index:
+      title: "Customers"
+      new: "Add Customer"
+      search: "Search..."
+      all_statuses: "All Statuses"
+      apply_filters: "Apply Filters"
+      no_customers: "No customers found."
+    
+    show:
+      details: "Customer Details"
+    
+    new:
+      title: "New Customer"
+    
+    edit:
+      title: "Edit Customer"
+    
+    fields:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      company: "Company"
+      status: "Status"
+      created_at: "Created At"
+      actions: "Actions"
+    
+    status:
+      lead: "Lead"
+      active: "Active"
+      inactive: "Inactive"
+      potential: "Potential"
+  
+  notes:
+    add: "Add Note"
+    save: "Save Note"
+    history: "Notes History"
+    created: "Note was added."
+    destroyed: "Note was deleted."
+    error: "There was an error adding the note."
+    confirm_delete: "Are you sure you want to delete this note?"
+    no_notes: "No notes for this customer."
+  
+  settings:
+    title: "Settings"
+    language: "Language"
+    save: "Save Settings"
+    updated: "Settings were updated."

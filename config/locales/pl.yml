@@ -1,0 +1,78 @@
+pl:
+  common:
+    save: "Zapisz"
+    cancel: "Anuluj"
+    back: "Powrót"
+    view: "Zobacz"
+    edit: "Edytuj"
+    delete: "Usuń"
+    not_provided: "Nie podano"
+  
+  nav:
+    dashboard: "Pulpit"
+    customers: "Klienci"
+    settings: "Ustawienia"
+    logout: "Wyloguj"
+  
+  dashboard:
+    title: "Pulpit"
+    customer_count: "Liczba klientów"
+    view_all: "Zobacz wszystkich"
+    recent_customers: "Ostatnio dodani klienci"
+    recent_notes: "Ostatnie notatki"
+    no_customers: "Brak klientów"
+    no_notes: "Brak notatek"
+  
+  customers:
+    created: "Klient został pomyślnie utworzony."
+    updated: "Informacje o kliencie zostały zaktualizowane."
+    destroyed: "Klient został usunięty."
+    confirm_delete: "Czy na pewno chcesz usunąć tego klienta?"
+    
+    index:
+      title: "Klienci"
+      new: "Dodaj klienta"
+      search: "Szukaj..."
+      all_statuses: "Wszystkie statusy"
+      apply_filters: "Zastosuj filtry"
+      no_customers: "Nie znaleziono klientów."
+    
+    show:
+      details: "Szczegóły klienta"
+    
+    new:
+      title: "Nowy klient"
+    
+    edit:
+      title: "Edycja klienta"
+    
+    fields:
+      name: "Imię i nazwisko"
+      email: "Email"
+      phone: "Telefon"
+      company: "Firma"
+      status: "Status"
+      created_at: "Data dodania"
+      actions: "Akcje"
+    
+    status:
+      lead: "Lead"
+      active: "Aktywny"
+      inactive: "Nieaktywny"
+      potential: "Potencjalny"
+  
+  notes:
+    add: "Dodaj notatkę"
+    save: "Zapisz notatkę"
+    history: "Historia notatek"
+    created: "Notatka została dodana."
+    destroyed: "Notatka została usunięta."
+    error: "Wystąpił błąd podczas dodawania notatki."
+    confirm_delete: "Czy na pewno chcesz usunąć tę notatkę?"
+    no_notes: "Brak notatek dla tego klienta."
+  
+  settings:
+    title: "Ustawienia"
+    language: "Język"
+    save: "Zapisz ustawienia"
+    updated: "Ustawienia zostały zaktualizowane."

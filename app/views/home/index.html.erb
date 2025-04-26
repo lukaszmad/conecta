@@ -1,0 +1,64 @@
+<div class="dashboard">
+  <h1><%= t('dashboard.title') %></h1>
+  
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= t('dashboard.customer_count') %></h5>
+          <h2 class="display-4"><%= @customers_count %></h2>
+          <%= link_to t('dashboard.view_all'), customers_path, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <%= t('dashboard.recent_customers') %>
+        </div>
+        <div class="card-body">
+          <% if @recent_customers.any? %>
+            <ul class="list-group list-group-flush">
+              <% @recent_customers.each do |customer| %>
+                <li class="list-group-item">
+                  <%= link_to customer.name, customer_path(customer) %>
+                  <span class="badge bg-<%= customer.status == 'active' ? 'success' : 'secondary' %>">
+                    <%= t("customers.status.#{customer.status}") %>
+                  </span>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p><%= t('dashboard.no_customers') %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <%= t('dashboard.recent_notes') %>
+        </div>
+        <div class="card-body">
+          <% if @recent_notes.any? %>
+            <ul class="list-group list-group-flush">
+              <% @recent_notes.each do |note| %>
+                <li class="list-group-item">
+                  <strong><%= link_to note.customer.name, customer_path(note.customer) %></strong>
+                  <p class="mb-0 text-muted"><%= note.content.truncate(100) %></p>
+                  <small class="text-muted"><%= l(note.created_at, format: :short) %></small>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p><%= t('dashboard.no_notes') %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="settings">
+  <h1><%= t('settings.title') %></h1>
+  
+  <div class="card">
+    <div class="card-body">
+      <%= form_with(model: current_user, url: update_settings_path, method: :patch, local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.label :language, t('settings.language'), class: "form-label" %>
+          <%= form.select :language, 
+                         User.available_languages.map { |code, name| [name, code] },
+                         {}, class: "form-select" %>
+        </div>
+        
+        <div class="actions">
+          <%= form.submit t('settings.save'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<%= form_with(model: customer, local: true) do |form| %>
+  <% if customer.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <ul>
+        <% customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, t('customers.fields.name'), class: "form-label" %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :email, t('customers.fields.email'), class: "form-label" %>
+    <%= form.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone, t('customers.fields.phone'), class: "form-label" %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :company, t('customers.fields.company'), class: "form-label" %>
+    <%= form.text_field :company, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, t('customers.fields.status'), class: "form-label" %>
+    <%= form.select :status, 
+                    Customer.statuses.keys.map { |s| [t("customers.status.#{s}"), s] },
+                    {}, class: "form-select" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t('common.save'), class: "btn btn-primary" %>
+    <%= link_to t('common.cancel'), customers_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>
