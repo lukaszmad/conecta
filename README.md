@@ -18,7 +18,7 @@ This is my personal learning project, developed as part of my journey to become 
 
 ## 🛠️ Technologies Used
 
-- Ruby 3.3.0
+- Ruby 3.3.7
 - Ruby on Rails 7.2.2.1
 - PostgreSQL
 - Hotwire (Turbo/Stimulus) (planned)
